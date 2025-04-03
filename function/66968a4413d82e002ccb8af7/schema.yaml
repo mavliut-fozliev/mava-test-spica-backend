@@ -1,0 +1,15 @@
+_id: 66968a4413d82e002ccb8af7
+name: test
+language: javascript
+timeout: 12
+triggers:
+  default:
+    type: http
+    active: true
+    options:
+      method: Get
+      path: /test
+      preflight: true
+env:
+  API_URL: "{API_URL}"
+memoryLimit: 100

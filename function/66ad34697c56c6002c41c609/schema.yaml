@@ -1,0 +1,14 @@
+_id: 66ad34697c56c6002c41c609
+name: test2
+language: typescript
+timeout: 13.2
+triggers:
+  default:
+    type: http
+    active: true
+    options:
+      method: Get
+      path: /
+      preflight: true
+env: {}
+memoryLimit: 100
