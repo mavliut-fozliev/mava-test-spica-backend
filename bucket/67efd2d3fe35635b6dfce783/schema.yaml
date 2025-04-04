@@ -1,0 +1,50 @@
+_id: 67efd2d3fe35635b6dfce783
+title: STRIPE-Payment Method
+description: STRIPE-Payment Method description
+icon: view_stream
+readOnly: false
+history: false
+primary: payment_method_id
+order: 2
+required:
+  - payment_method_id
+  - customer
+acl:
+  write: true==true
+  read: true==true
+properties:
+  customer:
+    type: relation
+    relationType: onetoone
+    title: customer
+    description: SELECT THE CUSTOMER OF THIS PAYMENT METHOD!
+    options:
+      position: bottom
+    bucketId: 67efbb748b5d424a37ede359
+    dependent: false
+    primary: name
+  payment_method_id:
+    type: string
+    title: payment_method_id
+    description: WRITE PAYMENT METHOD ID OF THIS CUSTOMER
+    options:
+      position: bottom
+  status:
+    type: string
+    default: creating
+    title: status
+    description: DO NOT TOUCH! IT WILL BE CHANGED AUTOMATICALLY!
+    options:
+      position: bottom
+    enum:
+      - creating
+      - done
+      - error
+  default:
+    type: boolean
+    default: false
+    title: default
+    description: SELECT THIS IF YOU WANT THIS PAYMENT METHOD TO BE DEFAULT FOR THIS
+      CUSTOMER.
+    options:
+      position: bottom

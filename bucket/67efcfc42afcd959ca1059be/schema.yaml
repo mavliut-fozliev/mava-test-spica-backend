@@ -1,0 +1,47 @@
+_id: 67efcfc42afcd959ca1059be
+title: STRIPE-Card
+description: STRIPE-Card of customers
+icon: view_stream
+readOnly: false
+history: false
+primary: card_id
+order: 1
+required:
+  - customer
+  - token
+acl:
+  write: true==true
+  read: true==true
+properties:
+  customer:
+    type: relation
+    relationType: onetoone
+    title: customer
+    description: who owns this card
+    options:
+      position: bottom
+    bucketId: 67efbb748b5d424a37ede359
+    dependent: false
+    primary: name
+  card_id:
+    type: string
+    title: card_id
+    description: DONT TOUCH, IT WILL BE FILLED AUTOMATICALLY
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    description: DONT TOUCH, IT WILL BE FILLED AUTOMATICALLY
+    options:
+      position: bottom
+    enum:
+      - creating
+      - done
+      - error
+  token:
+    type: string
+    title: token
+    description: token of the card
+    options:
+      position: bottom

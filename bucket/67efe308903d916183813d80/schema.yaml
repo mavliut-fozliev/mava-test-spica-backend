@@ -1,0 +1,100 @@
+_id: 67efe308903d916183813d80
+title: STRIPE-Payment
+description: STRIPE-Payment description
+icon: view_stream
+readOnly: false
+history: false
+primary: payment_type
+order: 5
+required:
+  - payment_type
+acl:
+  write: true==true
+  read: true==true
+properties:
+  customer:
+    type: relation
+    relationType: onetoone
+    description: SELECT WHEN - CHARGE -
+    title: customer
+    options:
+      position: bottom
+    bucketId: 67efbb748b5d424a37ede359
+    dependent: false
+    primary: name
+  payment_method:
+    type: relation
+    relationType: onetoone
+    description: SELECT WHEN - SUBSCRIBE - AND CUSTOMER HAS NO DEFAULT PAYMENT
+    title: payment_method
+    options:
+      position: bottom
+    bucketId: 67efd2d3fe35635b6dfce783
+    dependent: false
+    primary: payment_method_id
+  card:
+    type: relation
+    relationType: onetoone
+    description: SELECT WHEN - CHARGE WITH CUSTOMER CARD
+    title: card
+    options:
+      position: bottom
+    bucketId: 67efcfc42afcd959ca1059be
+    dependent: false
+    primary: card_id
+  payment_type:
+    type: string
+    description: SELECT PAYMENT TYPE
+    title: payment_type
+    options:
+      position: bottom
+    enum:
+      - subscribe
+      - invoice
+      - charge
+  token:
+    type: string
+    description: FILL WHEN - CHARGE -
+    title: token
+    options:
+      position: bottom
+  price:
+    type: number
+    description: FILL WHEN - CHARGE -
+    title: price
+    options:
+      position: bottom
+  currency:
+    type: string
+    description: SELECT WHEN - CHARGE -
+    title: currency
+    options:
+      position: bottom
+    default: usd
+  status:
+    type: string
+    default: creating
+    description: DO NOT TOUCH! IT WILL BE FILLED AUTOMATICALLY!
+    title: status
+    options:
+      position: bottom
+    enum:
+      - creating
+      - done
+      - error
+  plan:
+    type: relation
+    relationType: onetoone
+    description: SELECT WHEN - SUBSCRIBE -
+    title: plan
+    options:
+      position: bottom
+    bucketId: 67efe1dfbdc67f60cafed283
+    dependent: false
+    primary: interval
+  subscribe_id:
+    type: string
+    description: DO NOT TOUCH! IT WILL BE FILLED AUTOMATICALLY WHEN SUBSCRIBING.
+    title: subscribe_id
+    options:
+      position: bottom

@@ -1,0 +1,28 @@
+_id: 67ef8797b8c681002bdc9f21
+name: getCurrentDay
+language: javascript
+timeout: 12
+triggers:
+  default:
+    type: http
+    active: true
+    options:
+      method: Get
+      path: /current-day
+      preflight: true
+  funcName:
+    options:
+      timezone: UTC
+      frequency: "* * * * *"
+    type: schedule
+    active: true
+  funcNameBucket:
+    options:
+      bucket: 67ed3b61b8c681002bdc53f7
+      type: INSERT
+    type: bucket
+    active: true
+env:
+  TEST_ENV: "{TEST_ENV}"
+  SECOND: "{SECOND}"
+memoryLimit: 100

@@ -1,0 +1,41 @@
+_id: 67efbb748b5d424a37ede359
+title: STRIPE-Customer
+description: STRIPE-Customer description
+icon: view_stream
+readOnly: false
+history: false
+primary: name
+order: 0
+required:
+  - email
+acl:
+  write: true==true
+  read: true==true
+properties:
+  name:
+    type: string
+    title: name
+    options:
+      position: bottom
+  email:
+    type: string
+    title: email
+    options:
+      position: bottom
+  stripe_customer_id:
+    type: string
+    title: stripe_customer_id
+    description: DO NOT TOUCH! IT WILL BE FILLED AUTOMATICALLY!
+    options:
+      position: bottom
+  status:
+    type: string
+    title: status
+    description: DO NOT TOUCH! IT WILL BE CHANGED AUTOMATICALLY!
+    default: creating
+    options:
+      position: bottom
+    enum:
+      - creating
+      - done
+      - error

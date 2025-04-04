@@ -1,0 +1,69 @@
+_id: 67efe1dfbdc67f60cafed283
+title: STRIPE-Plan
+description: STRIPE-Plan description
+icon: view_stream
+readOnly: false
+history: false
+primary: interval
+order: 4
+required:
+  - currency
+  - interval
+  - product
+  - amount
+acl:
+  write: true==true
+  read: true==true
+properties:
+  product:
+    type: relation
+    relationType: onetoone
+    title: product
+    description: SELECT A PRODUCT FOR THIS PLAN
+    options:
+      position: bottom
+    bucketId: 67efe04ab192465f6573bd4c
+    dependent: false
+    primary: name
+  interval:
+    type: string
+    default: month
+    title: interval
+    description: PAYING INTERVAL
+    options:
+      position: bottom
+    enum:
+      - day
+      - week
+      - month
+      - year
+  amount:
+    type: number
+    title: amount
+    description: AMOUNT OF MONEY
+    options:
+      position: bottom
+  currency:
+    type: string
+    title: currency
+    description: CURRENCY OF MONEY
+    options:
+      position: bottom
+    default: usd
+  status:
+    type: string
+    default: creating
+    title: status
+    description: DO NOT TOUCH! IT WILL BE CHANGED AUTOMATICALLY!
+    options:
+      position: bottom
+    enum:
+      - creating
+      - done
+      - error
+  price_id:
+    type: string
+    title: price_id
+    description: DO NOT TOUCH! IT WILL BE FILLED AUTOMATICALLY!
+    options:
+      position: bottom

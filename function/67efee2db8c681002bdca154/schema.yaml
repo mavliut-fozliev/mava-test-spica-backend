@@ -1,0 +1,12 @@
+_id: 67efee2db8c681002bdca154
+name: newFunc
+language: javascript
+timeout: 12
+triggers:
+  default:
+    type: system
+    active: true
+    options:
+      name: READY
+env: {}
+memoryLimit: 100

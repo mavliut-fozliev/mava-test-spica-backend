@@ -1,0 +1,37 @@
+_id: 67efe04ab192465f6573bd4c
+title: STRIPE-Product
+description: STRIPE-Product description
+icon: view_stream
+readOnly: false
+history: false
+primary: name
+order: 3
+required:
+  - name
+acl:
+  write: true==true
+  read: true==true
+properties:
+  name:
+    type: string
+    title: name
+    description: NAME OF PRODUCT
+    options:
+      position: bottom
+  status:
+    type: string
+    default: creating
+    title: status
+    description: DO NOT TOUCH! IT WILL BE CHANGED AUTOMATICALLY!
+    options:
+      position: bottom
+    enum:
+      - creating
+      - done
+      - error
+  product_id:
+    type: string
+    title: product_id
+    description: DO NOT TOUCH! IT WILL BE FILLED AUTOMATICALLY!
+    options:
+      position: bottom
